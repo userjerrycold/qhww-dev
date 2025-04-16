@@ -18,13 +18,60 @@
           <div class="flex items-center">
             <span class="text-xl font-bold text-black dark:text-white font-serif">弯宝笔记</span>
           </div>
-          <div class="flex items-center space-x-8">
+          
+          <!-- Mobile menu button -->
+          <div class="flex items-center md:hidden">
+            <button
+              @click="isMenuOpen = !isMenuOpen"
+              class="inline-flex items-center justify-center p-2 rounded-md text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white focus:outline-none"
+            >
+              <span class="sr-only">打开主菜单</span>
+              <svg
+                class="h-6 w-6"
+                :class="{ 'hidden': isMenuOpen, 'block': !isMenuOpen }"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+              <svg
+                class="h-6 w-6"
+                :class="{ 'block': isMenuOpen, 'hidden': !isMenuOpen }"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Desktop menu -->
+          <div class="hidden md:flex items-center space-x-8">
             <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors font-serif">备忘录</a>
             <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors font-serif">孕期记录</a>
             <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors font-serif">坦克薯条</a>
             <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors font-serif">回忆篇</a>
             <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors font-serif">工具箱</a>
             <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors font-serif">菜谱</a>
+          </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div
+          class="md:hidden"
+          :class="{ 'block': isMenuOpen, 'hidden': !isMenuOpen }"
+        >
+          <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors font-serif">备忘录</a>
+            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors font-serif">孕期记录</a>
+            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors font-serif">坦克薯条</a>
+            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors font-serif">回忆篇</a>
+            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors font-serif">工具箱</a>
+            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors font-serif">菜谱</a>
           </div>
         </div>
       </div>
@@ -370,4 +417,7 @@ import CardContainer from '@/components/ui/card-3d/CardContainer.vue'
 import CardBody from '@/components/ui/card-3d/CardBody.vue'
 import CardItem from '@/components/ui/card-3d/CardItem.vue'
 import SnowfallBg from '@/components/SnowfallBg.vue'
+import { ref } from 'vue'
+
+const isMenuOpen = ref(false)
 </script> 
